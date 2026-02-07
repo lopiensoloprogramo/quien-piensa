@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-
+  const sound = new Audio("/cargando.mp3");
 const results = [
   { min: 0, max: 20, texts: [
     "No se detectan patrones frecuentes de interés.",
@@ -37,7 +37,7 @@ export default function App() {
   const [value, setValue] = useState(null);
   const [message, setMessage] = useState("");
   const [link, setLink] = useState("");
-  const sound = new Audio("/cargando.mp3");
+
 
 
 const analyze = () => {
@@ -46,7 +46,8 @@ const analyze = () => {
     return;
   }
 
-  sound.play().catch(() => {}); // 👈 solo si pasa validación
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
 
   setLoading(true);
   setValue(null);
@@ -99,7 +100,10 @@ const analyze = () => {
           <option value="crush">Crush</option>
        </select>
 
-        <button onClick={analyze}
+        <button onClick={(e) => {
+            e.preventDefault();
+            analyze();
+          }}
           className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600">
           Analizar
         </button>
