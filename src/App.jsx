@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-  const sound = new Audio("/cargando.mp3");
+const audioRef = useRef(null);
 const results = [
   { min: 0, max: 20, texts: [
     "No se detectan patrones frecuentes de interés.",
@@ -46,8 +46,8 @@ const analyze = () => {
     return;
   }
 
-  sound.currentTime = 0;
-  sound.play().catch(() => {});
+audioRef.current.currentTime = 0;
+audioRef.current.play().catch(() => {});
 
   setLoading(true);
   setValue(null);
@@ -79,6 +79,7 @@ const analyze = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center p-4">
+      <audio ref={audioRef} src="/cargando.mp3" preload="auto" />
       <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-md text-center space-y-4">
         <h1 className="text-2xl font-bold">💭 ¿Que tanto piensa en ti?</h1>
         <p className="text-gray-500">Pon dos nombres y descúbrelo...</p>
