@@ -141,7 +141,10 @@ const analyze = () => {
         )}
 
         <div className="mt-4 text-xs text-gray-400">
-          {/* Aquí va tu anuncio native */}
+          <script async="async" data-cfasync="false" src="https://pl28677830.effectivegatecpm.com/53625cd16e79dc4f5be82578d256686f/invoke.js"></script>
+          <div id="container-53625cd16e79dc4f5be82578d256686f"></div>
+
+
         </div>
       </div>
     </div>
